@@ -93,6 +93,7 @@ const password = [
   "v",
   "w",
 ];
+
 let getrandomPassword = () => {
   return Math.floor(Math.random() * password.length);
 };
