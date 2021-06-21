@@ -48,7 +48,7 @@ const members = [
     password: "",
   },
 ];
-const password = [
+const alphabet = [
   "A",
   "B",
   "C",
@@ -95,15 +95,16 @@ const password = [
 ];
 
 let getrandomPassword = () => {
-  return Math.floor(Math.random() * password.length);
+  return Math.floor(Math.random() * alphabet.length);
 };
 
-let array = members.map((member) => {
+let Passwords = members.map((member) => {
   for (let i = 0; i < 15; i++) {
-    member.password += password[getrandomPassword()];
-    console.log(getrandomPassword());
+    member.password += alphabet[getrandomPassword()];
+    // console.log(getrandomPassword());  I console log the fuctionn to test it
   }
 });
 
-console.log(members);
+console.log(members); //!every thing is alright ya nabnab
+
 // console.log(members);
