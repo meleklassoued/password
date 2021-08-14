@@ -114,15 +114,34 @@
 // };
 // order(0, production);
 
-const getTodos = async () => {
-  const response = await fetch("/Todos/DATA.jsn");
-  if (response.status !== 200) {
-    throw new Error('cannot fetch the data ');
-  }
-  const data = await response.json();
-  return data;
-};
+// const getTodos = async () => {
+//   const response = await fetch("/Todos/DATA.json");
+//   if (response.status !== 200) {
+//     throw new Error('cannot fetch the data  ');
+//   }
+//   const data = await response.json();
+//   return data;
+// };
 
-getTodos()
-  .then((data) => console.log("resolved", data))
-  .catch((err) => console.log("rejected nikomek", err.message));
+// getTodos()
+//   .then((data) => console.log("resolved", data))
+//   .catch((err) => console.log("rejected nikomek", err.message));
+
+const getTodos = async () => {
+  try {
+    const response = await fetch("/Todos/DATA.json");
+    if (response.status !== 200) {
+      throw new Error("cannot fetch the data  ");
+    }
+    const data = await response.json();
+    // const NewData = data.map((person) => JSON.parse(person));
+    if (data.length < 0) {
+      throw new Error("maywagAFESH");
+    }
+
+    return console.log(data);
+  } catch (error) {
+    console.log("shay mesh M39oul", error);
+  }
+};
+getTodos();
